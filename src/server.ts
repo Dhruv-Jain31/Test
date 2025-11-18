@@ -19,6 +19,9 @@ app.post('/sum', async(req, res) => {
     // instead of calling below function test will mock this prismaClient instance means replace with a fake one
     // since main goal is to test the server logic without actually hitting the database
     // in this mocking a separate instance is created that can be imported in tests and then it can be mocked.
+    // is prismaClient is a mock function then prismaClient.request.create will be a undefined function unless we define it in the mock
+    // in simple mocking all the methods must be mocked individually.
+    // but in case of deep mocking every method inside prismaClient can be mocked individually so that it does not throw errors during tests
     await prismaClient.request.create({ 
         data: { 
             a: a, 
