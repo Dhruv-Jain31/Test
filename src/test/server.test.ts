@@ -61,25 +61,8 @@ describe("Tests for /multiply endpoint", () => {
 // it provides a high-level abstraction for testing HTTP, making it easier to write and maintain tests
 // request(app) creates a SuperTest instance bound to our Express app
 
-
-// in the mocking below, we are replacing the prismaClient.request.create method with a mock function
-// so that when the server code calls prismaClient.request.create, it will call this mock function instead of the real one
-// this prevents actual database operations during tests and allows us to verify that the method was called correctly
-// mock is file specific so it will only affect tests in this file
-vi.mock('../db', () => {
-    return {
-        prismaClient: {
-            request: {
-                create : vi.fn(),
-                update : vi.fn(),
-            }
-            /*user: {  // if we more models eg : user then we can mock them like this but mock will be very deep then so we do deep mocking
-                findUnique: vi.fn(),
-                create: vi.fn(),
-            }*/
-        }
-    }
-})
+// since there is __mocks__ folder with db.ts file then it will find the mock finctions
+vi.mock('../db');
 
 describe("Tests for /sum endpoint", () => {
     it("should return the sum of two numbers", async () => {
