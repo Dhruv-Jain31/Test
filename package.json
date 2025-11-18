@@ -1,0 +1,26 @@
+{
+  "name": "testing",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "vitest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/axios": "^0.9.36",
+    "@types/express": "^5.0.5",
+    "@types/supertest": "^6.0.3",
+    "axios": "^1.13.2",
+    "express": "^5.1.0",
+    "supertest": "^7.1.4",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.10"
+  },
+  "devDependencies": {
+    "@jest/globals": "^30.2.0",
+    "ts-jest": "^29.4.5"
+  }
+}
